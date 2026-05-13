@@ -2,21 +2,30 @@
 
 ## Overview
 ### Problem
-- **Who is affected?**: Crypto investors and traders who need to track multiple assets against benchmarks.
-- **What is the issue?**: Keeping track of trades, calculating real-time profit and loss with cost basis, and comparing performance against a benchmark (like BTC) often requires using multiple disconnected tools, paid services, or manual spreadsheets.
+- **Who is affected?**: People who invest in cryptocurrency and want a simple way to track their different coins and see how they are performing.
+- **What is the issue?**: Keeping track of past trades, figuring out your actual profit or loss, and comparing your performance to Bitcoin usually means juggling multiple paid apps or messy Excel spreadsheets.
 
 ### Outcome
-- **What was achieved?**: Developed a self-hosted, dark-themed portfolio tracker that allows users to log their crypto trades, fetches real-time prices using the CoinGecko API, and visualizes P&L and performance against a BTC benchmark using TradingView Lightweight Charts.
-- **Measurable results (if any)**: Fully functional local portfolio tracker with zero reliance on cloud-based databases.
+- **What was achieved?**:
+
+| Objective | Solution | Result |
+| :--- | :--- | :--- |
+| Up-to-date updates for prices of all crypto coins | Use CoinGecko API | Success |
+| Interactive, fast and efficient chart | Lightweight Chart library | Success |
+| Persistent record of portfolio | Use DuckDB for database | Success |
+| Simple and easy to use system to display the entire GUI | Use FastAPI for backend and browser for frontend | Success |
+- **Measurable results (if any)**: A fully working, private portfolio tracker that runs right on your own computer without needing to sign up for any cloud services.
 
 ---
 ## Demo
 - **How does the solution work from the user’s perspective**:
-  1. The user launches the application and is presented with a dashboard showing their current portfolio holdings, total value, and P&L.
-  2. The user can search for a new coin to add using the "Coin Search" feature (fetching directly from CoinGecko).
-  3. The user logs a buy/sell transaction by specifying the coin, amount, and price.
-  4. The dashboard automatically updates the real-time pricing and recalculates the P&L.
-  5. The historical chart displays the portfolio performance over time, overlaid with a BTC benchmark for comparison.
+  1. You open the app and see a clean, dark-themed dashboard showing all the coins you own, your total money, and your overall profit or loss.
+  2. You can search for any cryptocurrency to add it to your tracker.
+  3. You log when you buy or sell a coin, including how much you bought and the price.
+  4. The dashboard instantly updates with live market prices and recalculates your profits.
+  5. A line chart shows you how your portfolio's value has changed over time, and compares it side-by-side with Bitcoin.
+  6. The "Your Holdings" table provides a breakdown of all current assets, displaying the total amount, current market price, overall value, and performance (P&L) for each asset.
+  7. The "Trade History" table serves as an audit log of all past transactions, offering details of every buy and sell alongside the functionality to delete specific trades.
 
 - **Demo Media**:
   ![Dashboard Screenshot](./assets/screenshot_solo.png)
@@ -24,53 +33,53 @@
 ---
 ## Technology Stack
 ### Frontend components:
-- **HTML/CSS/JS (Vanilla)**: Core structure, responsive dark-themed styling, and interactive elements.
-- **TradingView Lightweight Charts (v5.2)**: Used for high-performance historical data rendering and benchmark overlay.
+- **HTML/CSS/JS**: The basic building blocks used to create the beautiful, dark-themed user interface that you click and interact with.
+- **TradingView Lightweight Charts**: A popular tool we use to draw the smooth, interactive performance graphs.
 
 ### Backend components:
-- **Python 3.14 + FastAPI**: Async REST API handling client requests, processing business logic, and proxying external API calls. Pydantic models are used for request/response validation.
-- **DuckDB**: File-based OLAP database for fast, local storage of trade data and cached API responses without needing a separate server.
-- **CoinGecko Pro API (`coingecko_sdk`)**: Provides real-time and historical pricing data, proxied through the backend to handle rate limiting and security.
+- **Python & FastAPI**: The "brain" behind the scenes that securely handles your requests, talks to the internet to get live prices, and handles all the math.
+- **DuckDB**: A super-fast, simple database that lives directly on your computer to securely save your trade history.
+- **CoinGecko API**: The external service we connect to in order to fetch accurate, up-to-the-second cryptocurrency prices.
 
 ---
 ## Development Approach with AI
 - **List of AI tools, services, models, and their purposes**:
-  - **Antigravity (Gemini 3.1 Pro)**: Used as the primary agentic coding assistant to design the architecture, write backend routes, configure the DuckDB schema, and implement the frontend interface.
+  - **Antigravity (Gemini 3.1 Pro)**: Our AI coding assistant that helped design the project, write the code, set up the database, and build the user interface.
 - **List of AI agents, including roles and skills**:
-  - **Antigravity Agent**: Acted as a full-stack engineer and architect, utilizing skills such as full-codebase context understanding, code generation, and test-driven development.
+  - **Antigravity Agent**: Acted as our lead developer, using its ability to understand the whole project to write code and test it automatically.
 - **List of key prompts used**:
   - "Build a complete Crypto Portfolio Solo web application from scratch using Python (FastAPI), DuckDB, and TradingView Lightweight Charts."
   - "Enhance the crypto portfolio tracker by implementing real-time data updates, improving performance visualizations, and adding interactive dashboard controls."
 - **List of key review points and the corresponding decision made**:
-  - *Review Point*: Choosing the database for a solo project. *Decision*: Selected DuckDB for its simple file-based nature, eliminating the need for a separate DB server while offering powerful analytical query capabilities.
-  - *Review Point*: Handling API rate limits. *Decision*: Proxied all CoinGecko API calls through the backend and used DuckDB to cache responses, preventing rate-limiting issues on the frontend.
+  - *Review Point*: How should we save the user's data? *Decision*: We chose DuckDB because it saves everything in a simple file on your computer, meaning you don't need to set up a complicated database server.
+  - *Review Point*: How do we stop the price provider (CoinGecko) from blocking us for asking for prices too often? *Decision*: We made the backend "brain" handle the requests and remember the prices for a little while, so the dashboard doesn't constantly ask CoinGecko for the same price.
 
 ---
 ## Installation
-Steps to setup the project workspace:
+Steps to download and set up the project on your computer:
 ```bash
-# 1. Git clone the project
+# 1. Download the project code to your computer
 git clone https://github.com/cloudostrich/cryptoportfolio_solo.git
-# 2. Change directory to project
+# 2. Open the project folder
 cd cryptoportfolio_solo
-# 3. Setup the python virtual environment
+# 3. Create a clean workspace for Python to install tools
 python3 -m venv .venv
 ```
 
-Steps to run the project from the workspace root:
+Steps to run the project for the first time:
 
 ```bash
-# 1. Activate the shared virtual environment
+# 1. Turn on your Python workspace
 source .venv/bin/activate
 
-# 2. Install backend dependencies (if not already installed)
+# 2. Install all the necessary tools (if you haven't already)
 pip install -r requirements.txt
 
-# 3. Set up your environment variables
+# 3. Set up your secret passwords and settings
 cp .env.example .env
-# Edit .env to include your COINGECKO_PRO_API_KEY
+# Open the .env file in a text editor and add your COINGECKO_PRO_API_KEY
 
-# 4. Initialise the database
+# 4. Set up the local database to save your trades
 python -m src.backend.db.init_db
 ```
 
@@ -81,24 +90,27 @@ How to start and use the application:
 ```bash
 source .venv/bin/activate
 
-# Start the FastAPI dev server
+# Start the application server
 uvicorn src.backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 - Open `http://localhost:8000` in your web browser.
-- Use the UI to search for coins, add trades, and view your portfolio summary and charts.
-- API endpoints are available under `/api/` (e.g., `/api/portfolio/summary`).
+- Use the screen to search for coins, log your trades, and view your charts.
+- *For advanced users*: All API endpoints (the hidden messengers fetching your data) are available to review and interact with at `http://localhost:8000/docs`. Since we are using FastAPI, the technical details of generating this documentation are automatically taken care of for us behind the scenes.
 
 ---
 ## Project Structure
-- `src/backend/`: Contains the FastAPI application, divided into `main.py` (entrypoint), `routes/` (API endpoints), `models/` (Pydantic schemas), `services/` (business logic), and `db/` (DuckDB interactions).
-- `src/frontend/`: Static files served by FastAPI, including `index.html`, `css/`, and `js/` for the UI.
-- `tests/`: Automated test suite using `pytest` to ensure backend reliability.
-- `data/`: Local directory where the DuckDB database files are stored.
-- `docs/` & `scripts/`: Additional documentation and utility scripts for project maintenance.
+- `.agents/`: Contains configurations, prompts, and memory files utilized by the Antigravity AI agent.
+- `assets/`: Directory storing static media assets, such as screenshots used in the project documentation.
+- `Reference_Materials/`: Collection of external guides, project guidelines, and reference documents for development.
+- `src/backend/`: The hidden "brain" of the app, including the main program, the logic, and database connections.
+- `src/frontend/`: The visual parts of the app that you see in your browser (the design and buttons).
+- `tests/`: Automated checks to make sure the app doesn't break.
+- `data/`: The folder on your computer where your personal trade data is safely saved.
+- `docs/` & `scripts/`: Extra helpful documents and tools for keeping the project running smoothly.
 
 ---
 ## Reflection
-- **What worked**: Integrating DuckDB proved to be very efficient for a local, file-based tracker. It simplified the setup without compromising query performance. TradingView Lightweight Charts offered a very smooth experience for rendering data.
-- **What failed**: Direct client-side calls to CoinGecko initially caused rate-limiting and exposed API keys.
-- **Changes made**: Moved all external API calls to the backend. Created an abstraction layer using `coingecko_sdk` with built-in retries and caching in DuckDB.
-- **Rationale**: Prioritized security and reliability for the end user, ensuring a consistent experience without API blocks.
+- **What worked**: Using a simple file-based database (DuckDB) made the app super easy to set up without making it slow. The charts from TradingView look great and are very responsive.
+- **What failed**: At first, we tried getting live prices straight from the browser, but the provider blocked us for asking too often, and it wasn't secure.
+- **Changes made**: We moved all price-checking to the backend "brain" of the app. It now asks for prices carefully and remembers them for a bit to avoid getting blocked.
+- **Rationale**: We wanted to make sure the app was secure, fast, and never broke down or stopped showing prices for the user.
