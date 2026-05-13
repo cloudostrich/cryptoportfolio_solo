@@ -1,1 +1,0 @@
-coingecko api key:CG-WdTbBtbbmDHvaD1tGdCg93iV
