@@ -1,0 +1,1 @@
+-- Create Price Fact Table

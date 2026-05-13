@@ -1,0 +1,1 @@
+# Coingecko Rate Limits

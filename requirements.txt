@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+duckdb
+python-dotenv
+httpx
+pydantic
+pydantic-settings
+coingecko-sdk
+apscheduler
+pytest
+pytest-asyncio
