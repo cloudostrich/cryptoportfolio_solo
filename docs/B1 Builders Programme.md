@@ -77,9 +77,18 @@ The projects should demonstrate your ability to:
 1. Project repository links (with access permissions). One for each project.  
    * Suggested folder structure
 
-| project/ ├── README.md ├── LICENSE ├── .gitignore ├── requirements.txt / package.json │ ├── src/        \# main source code ├── tests/      \# all testing code ├── docs/       \# extended documentation ├── scripts/    \# automation / utilities ├── assets/     \# optional images, media └── data/       \# optional datasets |
-| :---- |
-
+| project/ 
+├── README.md 
+├── LICENSE 
+├── .gitignore 
+├── requirements.txt / package.json 
+│ 
+├── src/        \# main source code 
+├── tests/      \# all testing code 
+├── docs/       \# extended documentation 
+├── scripts/    \# automation / utilities 
+├── assets/     \# optional images, media 
+└── data/       \# optional datasets 
    
 
 * Sections to be included in README.md:
