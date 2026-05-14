@@ -25,6 +25,7 @@ Do not use this skill for:
 # Project assumptions
 
 - DuckDB is the analytical or embedded database for this project.
+- Database schemas, initialization scripts, and connection logic live in `src/backend/db/`.
 - Schema and query style should match repository conventions.
 - SQL should be reproducible, readable, and safe to rerun when possible.
 - Analytical transforms should live in dedicated modules or scripts, not be scattered across unrelated files.

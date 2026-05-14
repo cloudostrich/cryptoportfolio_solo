@@ -1,15 +1,12 @@
 # AGENTS.md — B1 Builders Workspace
 
 > This file guides AI coding agents working on this repository.
-> It complements the README.md files found in each project subdirectory.
+> It complements the README.md file found at the root of the project.
 
 ## Repository Overview
 
 This project is built for the [42 Singapore B1 Builders Programme](../Reference_Materials/B1%20Builders%20Programme.md)
-
-| Project | Scope | Directory |
-|---|---|---|
-| **Crypto Portfolio Solo** | Individual-use — single user tracks crypto trades vs BTC benchmark | `cyrpto-portfolio-solo/` |
+It is a single-project repository for the **Crypto Portfolio Solo** application: an individual-use tracker for crypto trades vs a BTC benchmark.
 
 
 ---
@@ -41,16 +38,15 @@ source .venv/bin/activate     # From workspace root
 ### Install backend dependencies
 ```bash
 source .venv/bin/activate
-pip install -r alpha-tracker/requirements.txt
-pip install -r thesis-board/requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-## Project Structure (per project)
+## Project Structure
 
 ```
-<project>/
+.
 ├── README.md
 ├── LICENSE
 ├── .gitignore
@@ -85,13 +81,13 @@ pip install -r thesis-board/requirements.txt
 ### Start Crypto Portfolio Solo (port 8000)
 ```bash
 source .venv/bin/activate
-cd cyrpto-portfolio-solo && uvicorn src.backend.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn src.backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Run tests
 ```bash
 source .venv/bin/activate
-cd cyrpto-portfolio-solo && pytest tests/ -v
+pytest tests/ -v
 ```
 
 ### Lint / format

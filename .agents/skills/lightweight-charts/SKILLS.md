@@ -96,7 +96,7 @@ For volume:
 - Keep chart container sizing explicit
 - Avoid hidden overflow bugs from parent flex layouts
 - Recalculate size on mount and resize
-- Ensure the chart works with both SSR-aware and client-only frontend patterns used in the repo
+- Ensure the chart lifecycle is properly managed in the Vanilla JS application
 
 # References
 
@@ -111,7 +111,6 @@ Load only when relevant:
 Useful examples (all use v5 API):
 - `examples/line_chart.js` — Standalone build line chart + CoinGecko data normalization
 - `examples/candlestick_chart.js` — OHLC candlestick chart (placeholder)
-- `examples/react_chart_component.tsx` — React wrapper (placeholder)
 
 # Constraints
 
@@ -123,5 +122,4 @@ Useful examples (all use v5 API):
 # Example tasks
 
 - “Render BTC daily candlesticks with volume below.”
-- “Create a reusable React wrapper for Lightweight Charts.”
 - “Fix a chart that breaks on resize inside a flex container.”

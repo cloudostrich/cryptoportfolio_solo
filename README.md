@@ -1,9 +1,12 @@
 # Alpha Tracker (Crypto Portfolio Solo)
 
 ## Overview
+### Inspiration
+This project is inspired by the [CoinMarketCap Portfolio Tracker](https://coinmarketcap.com/portfolio-tracker/). We aimed to capture its intuitive design and seamless tracking experience while building a fully localized, private alternative.
+
 ### Problem
 - **Who is affected?**: People who invest in cryptocurrency and want a simple way to track their different coins and see how they are performing.
-- **What is the issue?**: Keeping track of past trades, figuring out your actual profit or loss, and comparing your performance to Bitcoin usually means juggling multiple paid apps or messy Excel spreadsheets.
+- **What is the issue?**: While popular web-based tools like the [CoinMarketCap Portfolio Tracker](https://coinmarketcap.com/portfolio-tracker/) offer great features, many users are forced to choose between sharing their financial data with third-party platforms or managing complex, manual spreadsheets to maintain privacy.
 
 ### Outcome
 - **What was achieved?**:
@@ -14,7 +17,14 @@
 | Interactive, fast and efficient chart | Lightweight Chart library | Success |
 | Persistent record of portfolio | Use DuckDB for database | Success |
 | Simple and easy to use system to display the entire GUI | Use FastAPI for backend and browser for frontend | Success |
-- **Measurable results (if any)**: A fully working, private portfolio tracker that runs right on your own computer without needing to sign up for any cloud services.
+- **Measurable results (if any)**: 
+  
+  | Metric / Feature | Manual Process | Alpha Tracker Result |
+  | :--- | :--- | :--- |
+  | **Data Privacy** | Cloud/third-party dependent | **100% Local Privacy** (runs entirely on your computer) |
+  | **User Experience** | Fragmented, complex spreadsheets | **Seamless** (CoinMarketCap-inspired interface) |
+  | **Price Updates** | Seconds/minutes to manually lookup | **~0.25 seconds** (via automated API) |
+  | **Coin Searches** | Seconds/minutes to manually lookup | **~0.66 seconds** (via automated API) |
 
 ---
 ## Demo
@@ -85,6 +95,8 @@ python -m src.backend.db.init_db
 
 ---
 ## Usage
+
+### Starting the Application
 How to start and use the application:
 
 ```bash
@@ -96,6 +108,24 @@ uvicorn src.backend.main:app --reload --host 0.0.0.0 --port 8000
 - Open `http://localhost:8000` in your web browser.
 - Use the screen to search for coins, log your trades, and view your charts.
 - *For advanced users*: All API endpoints (the hidden messengers fetching your data) are available to review and interact with at `http://localhost:8000/docs`. Since we are using FastAPI, the technical details of generating this documentation are automatically taken care of for us behind the scenes.
+
+### Testing
+
+To ensure the application is functioning correctly, you can run the automated test suite.
+
+**1. Run the Full Test Suite:**
+This runs all automated tests for the backend logic and API routes without making any live external requests.
+```bash
+source .venv/bin/activate
+pytest tests/ -v
+```
+
+**2. Run the Live CoinGecko API Speed Tests:**
+This specifically tests the connection to the live CoinGecko API to ensure correct data retrieval and measures the response speed.
+```bash
+source .venv/bin/activate
+pytest tests/test_coingecko_live.py -v -s
+```
 
 ---
 ## Project Structure

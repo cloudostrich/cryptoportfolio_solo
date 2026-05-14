@@ -26,6 +26,12 @@ Do not use this skill for:
 # Project assumptions
 
 - FastAPI is the backend framework for this project.
+- The FastAPI application and all backend logic live in `src/backend/`.
+  - `src/backend/main.py`: App entrypoint
+  - `src/backend/routes/`: API route modules
+  - `src/backend/models/`: Pydantic models
+  - `src/backend/services/`: Business logic
+  - `src/backend/db/`: Database logic
 - Route handlers should stay thin.
 - Business logic belongs in services, not directly in endpoints.
 - Request and response models should be explicit and typed.
