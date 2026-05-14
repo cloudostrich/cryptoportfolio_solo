@@ -13,10 +13,10 @@ This project is inspired by the [CoinMarketCap Portfolio Tracker](https://coinma
 
 | Objective | Solution | Result |
 | :--- | :--- | :--- |
-| Up-to-date updates for prices of all crypto coins | Use CoinGecko API | Success |
+| Real-time price tracking for all supported cryptocurrencies | Use CoinGecko API | Success |
 | Interactive, fast and efficient chart | Lightweight Chart library | Success |
 | Persistent record of portfolio | Use DuckDB for database | Success |
-| Simple and easy to use system to display the entire GUI | Use FastAPI for backend and browser for frontend | Success |
+| Intuitive, seamless user experience with minimal load times | FastAPI driving a lightweight, browser-native frontend | Success |
 - **Measurable results (if any)**: 
   
   | Metric / Feature | Manual Process | Alpha Tracker Result |
@@ -43,7 +43,7 @@ This project is inspired by the [CoinMarketCap Portfolio Tracker](https://coinma
 ---
 ## Technology Stack
 ### Frontend components:
-- **HTML/CSS/JS**: The basic building blocks used to create the beautiful, dark-themed user interface that you click and interact with.
+- **HTML/CSS/JS**: The core web technologies used to build the responsive, interactive, and beautifully dark-themed user interface.
 - **TradingView Lightweight Charts**: A popular tool we use to draw the smooth, interactive performance graphs.
 
 ### Backend components:
@@ -87,7 +87,7 @@ pip install -r requirements.txt
 
 # 3. Set up your secret passwords and settings
 cp .env.example .env
-# Open the .env file in a text editor and add your COINGECKO_PRO_API_KEY
+# Open the .env file in a text editor and add your COINGECKO_DEMO_API_KEY
 
 # 4. Set up the local database to save your trades
 python -m src.backend.db.init_db
