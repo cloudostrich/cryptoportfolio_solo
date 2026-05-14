@@ -5,7 +5,7 @@
 
 ## Repository Overview
 
-This project is built for the [42 Singapore B1 Builders Programme](../Reference_Materials/B1%20Builders%20Programme.md)
+This project is built for the [42 Singapore B1 Builders Programme](../docs/B1%20Builders%20Programme.md)
 It is a single-project repository for the **Crypto Portfolio Solo** application: an individual-use tracker for crypto trades vs a BTC benchmark.
 
 
@@ -15,11 +15,11 @@ It is a single-project repository for the **Crypto Portfolio Solo** application:
 
 | Layer | Technology | Notes |
 |---|---|---|
-| **Frontend** | Vanilla HTML + CSS + JavaScript | Replicate CoinMarketCap dark-theme portfolio tracker style. Reference look/style, see [Screenshot_example](../Reference_Materials/Screenshot_example.png) |
+| **Frontend** | Vanilla HTML + CSS + JavaScript | Replicate CoinMarketCap dark-theme portfolio tracker style. Reference look/style, see [Screenshot_example](../docs/Screenshot_example.png) |
 | **Charts** | [TradingView Lightweight Charts v5.2](https://tradingview.github.io/lightweight-charts/) | `npm install lightweight-charts` — use `createChart`, `AreaSeries`, `CandlestickSeries` |
 | **Backend** | Python 3.14 + [FastAPI](https://fastapi.tiangolo.com/) | Async REST API, Pydantic models, CORS middleware |
 | **Database** | [DuckDB](https://duckdb.org/) via Python API | File-based OLAP database — no external server required |
-| **Data Feed** | [CoinGecko API](https://docs.coingecko.com/) via `coingecko_sdk` | Pro API key; official Python SDK with built-in retries. (credentials reference in ../Reference_Materials/creds.md) |
+| **Data Feed** | [CoinGecko API](https://docs.coingecko.com/) via `coingecko_sdk` | Pro API key; official Python SDK with built-in retries. (credentials reference in ../docs/creds.md) |
 | **Python Env** | Shared `.venv/` at workspace root | `source .venv/bin/activate` |
 
 ---

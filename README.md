@@ -131,12 +131,11 @@ pytest tests/test_coingecko_live.py -v -s
 ## Project Structure
 - `.agents/`: Contains configurations, prompts, and memory files utilized by the Antigravity AI agent.
 - `assets/`: Directory storing static media assets, such as screenshots used in the project documentation.
-- `Reference_Materials/`: Collection of external guides, project guidelines, and reference documents for development.
 - `src/backend/`: The hidden "brain" of the app, including the main program, the logic, and database connections.
 - `src/frontend/`: The visual parts of the app that you see in your browser (the design and buttons).
 - `tests/`: Automated checks to make sure the app doesn't break.
 - `data/`: The folder on your computer where your personal trade data is safely saved.
-- `docs/` & `scripts/`: Extra helpful documents and tools for keeping the project running smoothly.
+- `docs/` & `scripts/`: Collection of external guides, project guidelines, and extra helpful scripts for keeping the project running smoothly.
 
 ---
 ## Reflection
