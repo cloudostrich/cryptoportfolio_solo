@@ -96,6 +96,9 @@ python -m src.backend.db.init_db
 ---
 ## Usage
 
+### Getting a CoinGecko API Key
+To use this application, you need a CoinGecko API key to be entered into your `.env` file. This key enables the app to fetch live market data. For more information on how to sign up and generate your API key, please refer to the official [CoinGecko User Guide](https://support.coingecko.com/hc/en-us/articles/21880397454233-User-Guide-How-to-sign-up-for-CoinGecko-Demo-API-and-generate-an-API-key).
+
 ### Starting the Application
 How to start and use the application:
 
